@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class CellPhoneApplication {
 
-    // initiating scanner to read user input
+    // initiating scanner class to read user input
     static Scanner myScanner = new Scanner(System.in);
 
     // adding main method to application, applicable only for applications
@@ -29,7 +29,7 @@ public class CellPhoneApplication {
         String owner = myScanner.nextLine();
 
         // set the cell phone data on the object
-        myPhone.setSerialNumber( Integer.parseInt(serialNumber) );
+        myPhone.setSerialNumber(Integer.parseInt(serialNumber));
         myPhone.setModel(model);
         myPhone.setCarrier(carrier);
         myPhone.setPhoneNumber(phoneNumber);
@@ -39,11 +39,52 @@ public class CellPhoneApplication {
         System.out.println("\n");
 
         // use the getters to display the info
-        System.out.println("Serial Number: " + myPhone.getSerialNumber());
-        System.out.println("Model: " + myPhone.getModel());
-        System.out.println("Carrier: " + myPhone.getCarrier());
-        System.out.println("Phone Number: " + myPhone.getPhoneNumber());
-        System.out.println("Owner: " + myPhone.getOwner());
+//        System.out.println("Serial Number: " + myPhone.getSerialNumber());
+//        System.out.println("Model: " + myPhone.getModel());
+//        System.out.println("Carrier: " + myPhone.getCarrier());
+//        System.out.println("Phone Number: " + myPhone.getPhoneNumber());
+//        System.out.println("Owner: " + myPhone.getOwner());
+
+
+        // creating new phone
+        CellPhone burnerPhone = new CellPhone();
+        burnerPhone.setPhoneNumber("888-123-4567");
+        burnerPhone.setSerialNumber(32421);
+        burnerPhone.setOwner("Winnie Miffy Diana Thumbelina");
+        burnerPhone.setModel("iPhone 13 Pro Max");
+        burnerPhone.setCarrier("Verizon");
+
+        // new phone for 3rd exercise
+        CellPhone thirdPhone = new CellPhone(11234, "iPhone 15", "ATT", "972-111-2222", "Kai Choco Vang");
+        display(thirdPhone);
+
+
+        System.out.println("------info for myPhone------");
+        // use the display method instead
+        display(myPhone);
+
+        System.out.println("\n");
+
+        System.out.println("------info for burnerPhone------");
+        // use the display method instead
+        display(burnerPhone);
+
+        System.out.println("\n");
+
+        // have phone call the burner
+        myPhone.dial(burnerPhone.getPhoneNumber());
+
+        // have burner call myPhone
+        burnerPhone.dial(myPhone.getPhoneNumber());
+    }
+
+    // this method knows how to display the information for a phone - added in exercise 2
+        static void display(CellPhone phone){
+            System.out.println("Serial Number " + phone.getSerialNumber());
+            System.out.println("Model: " + phone.getModel());
+            System.out.println("Carrier: "+ phone.getCarrier());
+            System.out.println("Phone Number: " + phone.getPhoneNumber());
+            System.out.println("Owner: " + phone.getOwner());
 
     }
 }

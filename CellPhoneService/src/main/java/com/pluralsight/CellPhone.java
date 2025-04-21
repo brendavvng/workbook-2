@@ -9,6 +9,14 @@ public class CellPhone {
     private String phoneNumber;
     private String owner;
 
+    public CellPhone(int serialNumber, String model, String carrier, String phoneNumber, String owner) {
+        this.serialNumber = serialNumber;
+        this.model = model;
+        this.carrier = carrier;
+        this.phoneNumber = phoneNumber;
+        this.owner = owner;
+    }
+
     // creating constructor to instantiate cell phone
     // its decided the values for the properties
     public CellPhone(){
@@ -17,6 +25,11 @@ public class CellPhone {
         this.carrier = "";
         this.phoneNumber = "";
         this.owner = "";
+    }
+
+    // method to make phone dial - added in exercise 2
+    public void dial(String phoneNumber) {
+        System.out.println(this.getOwner() + "'s phone is calling " + phoneNumber);
     }
 
     // generating Getters & Setters by right click and choosing all options
